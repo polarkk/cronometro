@@ -1,21 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meus objetivos do ano</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meus objetivos do ano</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap">
+  <style>
+    :root {
+      --cor-de-fundo: #1e1e1e;
+      --verde: hsl(0, 0%, 5%);
+      --branco: #ffffff;
+      --botao-ativo: #3a375e;
+      --botao-inativo: rgba(58, 55, 94, 0.5);
+    }
 
-  <body>
-    <section class="conteudo-principal">
-      <h2 class="titulo-principal">Meus Objetivos do ano<span>_</span></h2>
-      <div class="botoes">
-        <button class="botao">Cursos na Alura</button>
-        <button class="botao">Criar projetos em Javascript</button>
-        <button class="botao">Criar um portfolio</button>
-        <button class="botao">Atualizar meu currículo</button>
-      </div>
-    </section>
-  </body>
+    body {
+      margin: 0;
+      background-color: var(--cor-de-fundo);
+      color: var(--branco);
+      font-family: "Chakra Petch", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    h2 {
+      font-size: 32px;
+      text-align: left;
+      width: 100%;
+    }
+
+    h2 span {
+      color: var(--verde);
+    }
+
+    .botoes {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .botao {
+      flex: 1;
+      padding: 1em;
+      font-size: 18px;
+      background-color: var(--botao-inativo);
+      color: var(--branco);
+      border: 2px solid var(--botao-ativo);
+      border-bottom-width: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .botao:first-child {
+      border-radius: 40px 0 0 0;
+    }
+
+    .botao:last-child {
+      border-radius: 0 40px 0 0;
+    }
+
+    .botao.ativo {
+      background-color: var(--cor-de-fundo);
+      border-bottom-color: var(--branco);
+    }
+  </style>
+</head>
+<body>
+  <h2>Meus Objetivos do ano<span>_</span></h2>
+  <div class="botoes">
+    <button class="botao ativo">Cursos na Alura</button>
+    <button class="botao">Criar projetos em Javascript</button>
+    <button class="botao">Criar um portfolio</button>
+    <button class="botao">Atualizar meu currículo</button>
+  </div>
+
+  <script>
+    document.querySelectorAll('.botao').forEach(botao => {
+      botao.addEventListener('click', () => {
+        document.querySelectorAll('.botao').forEach(b => b.classList.remove('ativo'));
+        botao.classList.add('ativo');
+      });
+    });
+  </script>
+</body>
 </html>
